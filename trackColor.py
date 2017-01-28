@@ -14,7 +14,7 @@ args = vars(ap.parse_args())
 
 # Define HSV values for color (Red in this case)
 redLower = (0,75,75)
-redUpper = (5,255,255)
+redUpper = (3,255,255)
 pts = deque(maxlen=args["buffer"])
 
 #Get webcam
@@ -32,8 +32,9 @@ while True:
 
     #Mask red with small cleanups
     mask = cv2.inRange(hsv, redLower, redUpper)
-    mask = cv2.erode(mask, None, iterations=2)
-    mask = cv2.dilate(mask, None, iterations=2)
+    element = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
+    mask = cv2.erode(mask, element, iterations=1)
+    mask = cv2.dilate(mask, element, iterations=1)
 
     # Display views
     res = cv2.bitwise_and(frame,frame, mask= mask)
