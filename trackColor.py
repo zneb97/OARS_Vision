@@ -37,13 +37,10 @@ while True:
 
     # Display views
     res = cv2.bitwise_and(frame,frame, mask= mask)
-    cv2.imshow('Mask, PRESS Q TO CLOSE',mask)
-    cv2.imshow('Res, PRESS Q TO CLOSE',res)
-    contours = []
-    cv2.findContours(mask, contours, 0, 0, 0)
+    cv2.imshow('Mask',mask)
+    cv2.imshow('Res',res)
     key = cv2.waitKey(1) & 0xFF
 
-    im2, contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     #Close all winows on q
     if key == ord("q"):
         break
