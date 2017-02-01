@@ -9,9 +9,9 @@ class ShapeDetector:
 		# initialize the shape name and approximate the contour
 		shape = "unidentified"
 		peri = cv2.arcLength(c, True)
-		approx = cv2.approxPolyDP(c, 0.008 * peri, True)
-		print('Printing approx with length %i:' % len(approx))
-		print approx
+		approx = cv2.approxPolyDP(c, 0.0092 * peri, True)
+		#print('Printing approx with length %i:' % len(approx))
+		#print approx
 
 		if len(approx) == 3:
 			shape = "triangle"
