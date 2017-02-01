@@ -1,3 +1,6 @@
+# Media files
+*.jpg
+*.png
 
 # Created by https://www.gitignore.io/api/python,virtualenv
 
